@@ -31,7 +31,9 @@ dependencies {
             "org.apache.tomcat:coyote:${tomcatVersion}",
             "org.apache.tomcat:jasper:${tomcatVersion}"
 
-    compile 'com.fasterxml.jackson.core:jackson-core:2.3.2'
+    compile 'com.fasterxml.jackson.core:jackson-core:2.3.3'
+    compile 'com.fasterxml.jackson.core:jackson-databind:2.3.3'
+    compile 'org.projectlombok:lombok:1.12.6'
 }
 
 buildscript {

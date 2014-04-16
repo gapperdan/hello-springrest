@@ -1,5 +1,6 @@
 package com.gapperdan.hellospringrest.controller;
 
+import com.gapperdan.hellospringrest.domain.Person;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -20,6 +21,18 @@ public class HelloController {
     @ResponseBody
     public String helloName(@PathVariable String name) {
         return "Hello there, " + name;
+    }
+
+    @RequestMapping(value = "rest/hello/person")
+    @ResponseStatus(HttpStatus.OK)
+    public @ResponseBody Person helloPerson() {
+
+        Person person = new Person();
+        person.setFirstName("John");
+        person.setLastName("Doe");
+        person.setAge(99);
+
+        return person;
     }
 
 }

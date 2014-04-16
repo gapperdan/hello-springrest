@@ -18,9 +18,10 @@ Will also work within Intellij IDEA by starting the local Tomcat
 
 ## how to remote debug tomcatRun in IntelliJ IDEA
 
-*	create *gradle.properties* with the following line:
+*	create *gradle.properties* with the following lines:
 
 		org.gradle.jvmargs=-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5005
+		org.gradle.daemon=true
 
 *	in IntelliJ IDEA, create a Run/Debug configuration to connect to the remote debugging port
 
