@@ -13,3 +13,5 @@ REST endpoints:
 
 * http://localhost:8080/hello-springrest/rest/hello
 * http://localhost:8080/hello-springrest/rest/hello/{name}
+
+Will also work within Intellij IDEA by starting the local Tomcat
