@@ -4,6 +4,16 @@ apply plugin: 'tomcat'
 apply plugin: 'war'
 apply plugin: 'jetty'
 
+jettyRun {
+    httpPort = 9080
+    contextPath = "/"
+}
+
+tomcatRun {
+    httpPort = 8080
+    contextPath = "/"
+}
+
 repositories {
     mavenCentral()
 }
@@ -30,7 +40,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'org.gradle.api.plugins:gradle-tomcat-plugin:1.0'
+        classpath 'org.gradle.api.plugins:gradle-tomcat-plugin:1.2.3'
     }
 }
 
