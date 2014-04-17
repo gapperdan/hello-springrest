@@ -1,6 +1,6 @@
 # hello-springrest
 
-Spring REST Tutorial with IntelliJ IDEA, Gradle with tomcat-plugin
+Spring REST Tutorial with IntelliJ IDEA, Gradle with tomcat-plugin, Java 7, Spring REST 3.x, Jackson
 
 To run locally:
 
@@ -11,9 +11,15 @@ If using jettyRun, use port: 9080 instead.
 
 REST endpoints:
 
-* http://localhost:8080/hello-springrest/rest/hello
-* http://localhost:8080/hello-springrest/rest/hello/{name}
-* http://localhost:8080/hello-springrest/rest/hello/person
+* http://localhost:8080/hello-springrest/rest/hello (GET)
+* http://localhost:8080/hello-springrest/rest/hello/{name} (GET)
+* http://localhost:8080/hello-springrest/rest/person (GET or POST)
+* http://localhost:8080/hello-springrest/rest/person/create (POST)
+  To create a sample person:
+
+        {"firstName":"John","lastName":"Doe","age":99}
+
+        //random userid is generated and returned in the response
 
 Will also work within Intellij IDEA by starting the local Tomcat
 
