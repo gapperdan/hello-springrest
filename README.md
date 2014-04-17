@@ -15,11 +15,16 @@ REST endpoints:
 * http://localhost:8080/hello-springrest/rest/hello/{name} (GET)
 * http://localhost:8080/hello-springrest/rest/person (GET or POST)
 * http://localhost:8080/hello-springrest/rest/person/create (POST)
+
   To create a sample person:
 
         {"firstName":"John","lastName":"Doe","age":99}
 
         //random userid is generated and returned in the response
+        { firstName: "John"
+        lastName: "Doe"
+        age: 99
+        uid: "ab48569" }
 
 Will also work within Intellij IDEA by starting the local Tomcat
 
