@@ -1,5 +1,4 @@
 apply plugin: 'idea'
-apply plugin: 'java'
 apply plugin: 'tomcat'
 apply plugin: 'war'
 apply plugin: 'jetty'
