@@ -15,6 +15,7 @@ REST endpoints:
 * http://localhost:8080/hello-springrest/rest/hello/{name} (GET)
 * http://localhost:8080/hello-springrest/rest/person (GET or POST)
 * http://localhost:8080/hello-springrest/rest/person/create (POST)
+* http://localhost:8080/hello-springrest/rest/client (sample REST client POST - calls the */create* endpoint)
 
   To create a sample person:
 

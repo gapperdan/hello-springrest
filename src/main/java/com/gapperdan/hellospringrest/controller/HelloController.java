@@ -3,7 +3,9 @@ package com.gapperdan.hellospringrest.controller;
 import com.gapperdan.hellospringrest.domain.Person;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.Random;
 import java.util.UUID;
@@ -51,8 +53,26 @@ public class HelloController {
         person.setAge(_person.getAge());
         person.setUid(UUID.randomUUID().toString().substring(0,7));
 
-
         return person;
+    }
+
+    @RequestMapping(value="rest/client", method = RequestMethod.GET)
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    public String sampleClient(ModelMap model) {
+
+        System.out.println("in here!");
+
+        RestTemplate restTemplate = new RestTemplate();
+        Person person = new Person();
+        person.setFirstName("Billy");
+        person.setLastName("Dakid");
+        person.setAge(55);
+
+        person = restTemplate.postForObject("http://localhost:8080/hello-springrest/rest/person/create", person, Person.class);
+        System.out.println("created person="+person);
+
+        return "Person created: "+person;
     }
 
 }
