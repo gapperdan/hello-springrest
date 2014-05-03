@@ -1,20 +1,27 @@
 package com.gapperdan.hellospringrest.controller;
 
 import com.gapperdan.hellospringrest.domain.Person;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
+import java.net.URI;
 import java.util.Random;
 import java.util.UUID;
 
 @Controller
+@Configuration
 @RequestMapping("hello-springrest")
 public class HelloController {
 
     private Random random = new Random();
+
+    @Value("${create.person.url}")
+    String createPersonUrl;
 
     @RequestMapping(value = "rest/hello", method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
@@ -61,15 +68,13 @@ public class HelloController {
     @ResponseBody
     public String sampleClient(ModelMap model) {
 
-        System.out.println("in here!");
-
         RestTemplate restTemplate = new RestTemplate();
         Person person = new Person();
         person.setFirstName("Billy");
         person.setLastName("Dakid");
         person.setAge(55);
 
-        person = restTemplate.postForObject("http://localhost:8080/hello-springrest/rest/person/create", person, Person.class);
+        person = restTemplate.postForObject(createPersonUrl, person, Person.class);
         System.out.println("created person="+person);
 
         return "Person created: "+person;
